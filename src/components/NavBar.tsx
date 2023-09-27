@@ -1,10 +1,9 @@
 import { HStack } from "@chakra-ui/react";
-import React from "react";
 import SearchInput from "./SearchInput";
 
 const NavBar = () => {
   return (
-    <HStack>
+    <HStack padding="10px">
       <SearchInput />
     </HStack>
   );

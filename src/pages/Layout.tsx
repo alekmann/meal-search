@@ -1,4 +1,3 @@
-import React from "react";
 import NavBar from "../components/NavBar";
 import { Box } from "@chakra-ui/react";
 import { Outlet } from "react-router-dom";
