@@ -1,4 +1,9 @@
-import { Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
+import {
+  Input,
+  InputGroup,
+  InputLeftElement,
+  useColorMode,
+} from "@chakra-ui/react";
 import React, { useEffect, useRef } from "react";
 import { BsSearch } from "react-icons/bs";
 import useRecipes from "../hooks/useRecipes";
