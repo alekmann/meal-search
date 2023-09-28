@@ -1,5 +1,4 @@
-import { Card, Image } from "@chakra-ui/react";
-import React from "react";
+import { Card, CardBody, Heading, Image } from "@chakra-ui/react";
 import Recipe from "../entities/Recipe";
 
 interface Props {
@@ -10,6 +9,9 @@ const RecipeCard = ({ recipe }: Props) => {
   return (
     <Card>
       <Image src={recipe.image} />
+      <CardBody>
+        <Heading fontSize="2xl">{recipe.title}</Heading>
+      </CardBody>
     </Card>
   );
 };
