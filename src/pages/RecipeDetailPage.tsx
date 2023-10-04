@@ -1,4 +1,15 @@
-import { GridItem, Heading, HStack, Image, SimpleGrid } from "@chakra-ui/react";
+import {
+  GridItem,
+  Heading,
+  HStack,
+  Image,
+  List,
+  ListItem,
+  SimpleGrid,
+  Text,
+  UnorderedList,
+  VStack,
+} from "@chakra-ui/react";
 import { AiFillClockCircle } from "react-icons/ai";
 import { GiKnifeFork } from "react-icons/gi";
 import { useParams } from "react-router-dom";
@@ -20,21 +31,16 @@ const RecipeDetailPage = () => {
 
   return (
     <SimpleGrid columns={{ base: 1, md: 2 }} spacing={5}>
-      <GridItem pb={4}>
-        <HStack>
-          <Image
-            src={recipeDetails.image}
-            maxW="500px"
-            maxH="300px"
-            //   pb={paddingB}
-          />
-        </HStack>
-      </GridItem>
-      <GridItem>
+      <GridItem
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        order={{ base: 2, md: 1 }}
+      >
         <Heading size="lg" pb={paddingB}>
           {recipeDetails.title}
         </Heading>
-        <HStack spacing={5}>
+        <HStack spacing={5} pb={paddingB}>
           <IconDetails
             icon={AiFillClockCircle}
             information={`${recipeDetails.readyInMinutes} minutes`}
@@ -45,11 +51,30 @@ const RecipeDetailPage = () => {
           />
         </HStack>
 
-        <ul>
-          {recipeDetails.extendedIngredients?.map(({ id, original }) => (
-            <li key={id}>{original}</li>
-          ))}
-        </ul>
+        <HStack width="full" spacing={10} alignItems="flex-start">
+          <VStack width="full" justifyContent="flex-start" alignItems="end">
+            <UnorderedList>
+              {recipeDetails.extendedIngredients?.map(({ id, original }) => (
+                <ListItem key={id}>{original}</ListItem>
+              ))}
+            </UnorderedList>
+          </VStack>
+
+          <VStack width="full" alignItems="flex-start">
+            <Text maxW={400}>{recipeDetails.instructions}</Text>
+          </VStack>
+        </HStack>
+      </GridItem>
+      <GridItem
+        pb={4}
+        display="grid"
+        flexDirection="column"
+        justifyContent="center"
+        order={{ base: 1, md: 2 }}
+      >
+        <HStack>
+          <Image src={recipeDetails.image} objectFit="fill" />
+        </HStack>
       </GridItem>
     </SimpleGrid>
   );

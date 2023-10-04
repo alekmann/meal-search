@@ -19,7 +19,37 @@ const mockExtendedIngredients = [
   },
   {
     id: 102,
-    original: "100g pancetta",
+    original: "102g pancetta",
+    measures: {
+      metric: {
+        amount: 100,
+        unitShort: "g",
+      },
+    },
+  },
+  {
+    id: 103,
+    original: "103g pancetta",
+    measures: {
+      metric: {
+        amount: 100,
+        unitShort: "g",
+      },
+    },
+  },
+  {
+    id: 104,
+    original: "104g pancetta",
+    measures: {
+      metric: {
+        amount: 100,
+        unitShort: "g",
+      },
+    },
+  },
+  {
+    id: 105,
+    original: "105g pancetta",
     measures: {
       metric: {
         amount: 100,

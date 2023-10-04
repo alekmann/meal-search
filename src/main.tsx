@@ -40,6 +40,8 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <App />
 );
 
+// When not in dev mode
+//
 // const queryClient = new QueryClient();
 
 // ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
