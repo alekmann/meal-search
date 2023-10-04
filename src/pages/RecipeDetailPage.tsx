@@ -1,4 +1,5 @@
 import {
+  chakra,
   GridItem,
   Heading,
   HStack,
@@ -15,6 +16,9 @@ import { GiKnifeFork } from "react-icons/gi";
 import { useParams } from "react-router-dom";
 import IconDetails from "../components/IconDetails";
 import useRecipe from "../hooks/useRecipe";
+import DOMPurify from "dompurify";
+
+const SafeHtml = chakra("div");
 
 const RecipeDetailPage = () => {
   const { id } = useParams();
@@ -61,7 +65,12 @@ const RecipeDetailPage = () => {
           </VStack>
 
           <VStack width="full" alignItems="flex-start">
-            <Text maxW={400}>{recipeDetails.instructions}</Text>
+            <SafeHtml
+              dangerouslySetInnerHTML={{
+                __html: DOMPurify.sanitize(recipeDetails.instructions),
+              }}
+              maxW="400px"
+            />
           </VStack>
         </HStack>
       </GridItem>
@@ -72,7 +81,7 @@ const RecipeDetailPage = () => {
         justifyContent="center"
         order={{ base: 1, md: 2 }}
       >
-        <HStack>
+        <HStack alignItems="flex-start">
           <Image src={recipeDetails.image} objectFit="fill" />
         </HStack>
       </GridItem>
