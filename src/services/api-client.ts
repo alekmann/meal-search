@@ -1,7 +1,10 @@
 import axios, { AxiosRequestConfig } from "axios";
 
 export interface FetchResponse<T> {
+  offset: number;
+  number: number;
   results: T[];
+  totalResults: number;
 }
 
 export const axiosInstance = axios.create({

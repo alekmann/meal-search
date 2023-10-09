@@ -9,7 +9,7 @@ import theme from "./theme";
 
 const App = () => {
   //  When developing
-  //
+
   // const [mocksLoaded, setMocksLoaded] = useState(false);
 
   // useEffect(() => {
