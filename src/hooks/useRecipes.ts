@@ -14,6 +14,7 @@ const useRecipes = () => {
       apiClient.getAll({
         params: {
           query: recipeQuery.searchText,
+          intolerances: recipeQuery.intolerances?.join(","),
         },
       }),
   });

@@ -8,20 +8,22 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import theme from "./theme";
 
 const App = () => {
-  const [mocksLoaded, setMocksLoaded] = useState(false);
+  //  When developing
+  //
+  // const [mocksLoaded, setMocksLoaded] = useState(false);
 
-  useEffect(() => {
-    if (process.env.NODE_ENV === "development") {
-      import("./mocks").then(() => {
-        console.log("Mocks loaded");
-        setMocksLoaded(true);
-      });
-    } else {
-      setMocksLoaded(true);
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (process.env.NODE_ENV === "development") {
+  //     import("./mocks").then(() => {
+  //       console.log("Mocks loaded");
+  //       setMocksLoaded(true);
+  //     });
+  //   } else {
+  //     setMocksLoaded(true);
+  //   }
+  // }, []);
 
-  if (!mocksLoaded) return <div>Loading...</div>;
+  // if (!mocksLoaded) return <div>Loading...</div>;
 
   return (
     <React.StrictMode>
@@ -39,17 +41,3 @@ const queryClient = new QueryClient();
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <App />
 );
-
-// When not in dev mode
-//
-// const queryClient = new QueryClient();
-
-// ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-//   <React.StrictMode>
-//     <ChakraProvider theme={theme}>
-//       <QueryClientProvider client={queryClient}>
-//         <RouterProvider router={router} />
-//       </QueryClientProvider>
-//     </ChakraProvider>
-//   </React.StrictMode>
-// );
